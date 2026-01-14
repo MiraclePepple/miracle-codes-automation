@@ -20,7 +20,7 @@ const AboutSection = () => {
               <img 
                 src={profilePhoto} 
                 alt="Miracle Tamunodein Pepple - Backend Developer & SaaS Automation Specialist"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-contain bg-secondary/50"
               />
             </div>
             
