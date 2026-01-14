@@ -43,8 +43,8 @@ const AboutSection = () => {
             </p>
             <p className="text-muted-foreground mb-8">
               With expertise spanning API development, database optimization, and workflow automation, 
-              I've helped dozens of companies streamline their processes and improve performance. 
-              My approach combines technical excellence with business understanding to deliver 
+              she has helped dozens of companies streamline their processes and improve performance. 
+              Her approach combines technical excellence with business understanding to deliver 
               solutions that truly make an impact.
             </p>
 
