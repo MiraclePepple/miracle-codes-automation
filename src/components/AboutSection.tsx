@@ -1,5 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import { Button } from "./ui/button";
+import profilePhoto from "@/assets/profile-photo.jpeg";
 
 const highlights = [
   "5+ years in backend development",
@@ -16,14 +17,11 @@ const AboutSection = () => {
           {/* Image */}
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden card-gradient border border-border shadow-card">
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center border-2 border-primary/30">
-                    <span className="text-4xl md:text-6xl font-bold text-gradient">MP</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm">Photo placeholder</p>
-                </div>
-              </div>
+              <img 
+                src={profilePhoto} 
+                alt="Miracle Tamunodein Pepple - Backend Developer & SaaS Automation Specialist"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             
             {/* Floating Badge */}
