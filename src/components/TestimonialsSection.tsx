@@ -4,19 +4,19 @@ const testimonials = [
   {
     name: "Sarah Chen",
     role: "CTO, TechStartup",
-    content: "Miracle transformed our backend infrastructure. His expertise in automation reduced our operational costs by 40% and improved system reliability significantly.",
+    content: "Miracle transformed our backend infrastructure. Her expertise in automation reduced our operational costs by 40% and improved system reliability significantly.",
     rating: 5,
   },
   {
     name: "James Wilson",
     role: "Founder, SaaSFlow",
-    content: "Working with Miracle was a game-changer. He built an API system that handles millions of requests daily without breaking a sweat. Highly recommended!",
+    content: "Working with Miracle was a game-changer. She built an API system that handles millions of requests daily without breaking a sweat. Highly recommended!",
     rating: 5,
   },
   {
     name: "Emily Rodriguez",
     role: "VP Engineering, DataCorp",
-    content: "Miracle's consulting helped us make the right architecture decisions early on. His deep knowledge of scalable systems saved us months of potential refactoring.",
+    content: "Miracle's consulting helped us make the right architecture decisions early on. Her deep knowledge of scalable systems saved us months of potential refactoring.",
     rating: 5,
   },
 ];
