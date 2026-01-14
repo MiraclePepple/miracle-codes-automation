@@ -4,7 +4,7 @@ import profilePhoto from "@/assets/profile-photo.jpeg";
 
 const highlights = [
   "5+ years in backend development",
-  "Expert in Node.js, Python, and Go",
+  "Expert in Node.js & TypeScript",
   "SaaS automation specialist",
   "Consulting for startups & enterprises",
 ];

@@ -9,7 +9,7 @@ const services = [
   {
     icon: Workflow,
     title: "API Building & Integration",
-    description: "Custom RESTful and GraphQL APIs designed for performance. Seamless third-party integrations that connect your systems efficiently.",
+    description: "Custom RESTful APIs designed for performance. Seamless third-party integrations that connect your systems efficiently.",
   },
   {
     icon: Cpu,
