@@ -12,7 +12,7 @@ const projects = [
     title: "SaaS Workflow Automation",
     category: "SaaS Automation",
     description: "AI-powered automation system reducing manual data entry by 80% for a fintech company.",
-    tags: ["Node.js", "OpenAI", "Zapier", "AWS Lambda"],
+    tags: ["Node.js", "OpenAI", "n8n", "Docker"],
   },
   {
     title: "Real-time Analytics Engine",
@@ -24,7 +24,7 @@ const projects = [
     title: "Multi-tenant CRM Backend",
     category: "SaaS Development",
     description: "Enterprise-grade CRM backend supporting 200+ tenants with custom workflow automation.",
-    tags: ["Node.js", "MongoDB", "REST API", "Stripe"],
+    tags: ["Node.js", "PostgreSQL", "REST API", "Stripe"],
   },
 ];
 
