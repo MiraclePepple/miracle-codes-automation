@@ -18,8 +18,8 @@ const VideoSection = () => {
             <video 
               src={introVideo}
               controls
+              preload="metadata"
               className="w-full h-full object-cover"
-              poster=""
             >
               Your browser does not support the video tag.
             </video>
