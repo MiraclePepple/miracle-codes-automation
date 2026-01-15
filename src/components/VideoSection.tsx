@@ -1,4 +1,5 @@
 import introVideo from "@/assets/intro-video.mov";
+import profilePhoto from "@/assets/profile-photo.jpeg";
 
 const VideoSection = () => {
   return (
@@ -19,6 +20,7 @@ const VideoSection = () => {
               src={introVideo}
               controls
               preload="metadata"
+              poster={profilePhoto}
               className="w-full h-full object-cover"
             >
               Your browser does not support the video tag.
