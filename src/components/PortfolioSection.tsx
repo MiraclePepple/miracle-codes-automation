@@ -1,5 +1,17 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "./ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
+
+import hrWorkflow from "@/assets/hr-reviewer-workflow.png";
+import hrOutput from "@/assets/hr-reviewer-output.jpg";
+import hrPrompt from "@/assets/hr-reviewer-prompt.jpg";
+import hrResults from "@/assets/hr-reviewer-results.jpg";
 
 const projects = [
   {
@@ -8,6 +20,7 @@ const projects = [
     description: "Automated end-to-end job application screening: reads emails, extracts resume data from PDFs, scores candidates using AI, and logs results. Saves 2+ hours per application.",
     tags: ["n8n", "Google Gemini", "JavaScript", "Google Sheets"],
     status: "completed",
+    images: [hrWorkflow, hrOutput, hrPrompt, hrResults],
   },
   {
     title: "Conversational AI Property Search",
@@ -60,6 +73,27 @@ const PortfolioSection = () => {
                 index === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
+              {project.images && project.images.length > 0 && (
+                <div className="relative px-4 pt-4">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {project.images.map((image, imgIndex) => (
+                        <CarouselItem key={imgIndex}>
+                          <div className="aspect-video rounded-lg overflow-hidden bg-secondary">
+                            <img
+                              src={image}
+                              alt={`${project.title} screenshot ${imgIndex + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </Carousel>
+                </div>
+              )}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
                   <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary border border-primary/30">
