@@ -12,6 +12,7 @@ import hrWorkflow from "@/assets/hr-reviewer-workflow.png";
 import hrOutput from "@/assets/hr-reviewer-output.jpg";
 import hrPrompt from "@/assets/hr-reviewer-prompt.jpg";
 import hrResults from "@/assets/hr-reviewer-results.jpg";
+import propertySearchDemo from "@/assets/property-search-demo.mp4";
 
 const projects = [
   {
@@ -28,6 +29,7 @@ const projects = [
     description: "Natural chat-based home searching for PropertyProNG. Users describe needs casually, AI asks clarifying questions, maintains context, and surfaces relevant listings.",
     tags: ["n8n", "LLM", "Property Data", "NLP"],
     status: "completed",
+    video: propertySearchDemo,
   },
   {
     title: "E-commerce Support Chatbot",
@@ -73,7 +75,21 @@ const PortfolioSection = () => {
                 index === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
-              {project.images && project.images.length > 0 && (
+              {project.video && (
+                <div className="px-4 pt-4">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-secondary">
+                    <video
+                      src={project.video}
+                      className="w-full h-full object-cover"
+                      controls
+                      muted
+                      loop
+                      playsInline
+                    />
+                  </div>
+                </div>
+              )}
+              {project.images && project.images.length > 0 && !project.video && (
                 <div className="relative px-4 pt-4">
                   <Carousel className="w-full">
                     <CarouselContent>
