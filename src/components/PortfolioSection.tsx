@@ -3,28 +3,39 @@ import { Button } from "./ui/button";
 
 const projects = [
   {
-    title: "E-Commerce API Platform",
+    title: "AI-Powered HR Application Reviewer",
+    category: "AI Automation",
+    description: "Automated end-to-end job application screening: reads emails, extracts resume data from PDFs, scores candidates using AI, and logs results. Saves 2+ hours per application.",
+    tags: ["n8n", "Google Gemini", "JavaScript", "Google Sheets"],
+    status: "completed",
+  },
+  {
+    title: "Conversational AI Property Search",
+    category: "AI Chatbot",
+    description: "Natural chat-based home searching for PropertyProNG. Users describe needs casually, AI asks clarifying questions, maintains context, and surfaces relevant listings.",
+    tags: ["n8n", "LLM", "Property Data", "NLP"],
+    status: "completed",
+  },
+  {
+    title: "E-commerce Support Chatbot",
+    category: "AI Automation",
+    description: "Customer service AI prototype for Jumia Nigeria handling order tracking, refund requests, and product inquiries with built-in knowledge base.",
+    tags: ["n8n", "AI Agent", "Knowledge Base"],
+    status: "completed",
+  },
+  {
+    title: "RAG System",
     category: "Backend Development",
-    description: "Scalable RESTful API handling 1M+ daily transactions with real-time inventory management.",
-    tags: ["Node.js", "PostgreSQL", "Redis", "Docker"],
+    description: "Retrieval-Augmented Generation system grounding AI responses in verified documents. Ingests files, embeds in vector DB, retrieves chunks, generates accurate answers.",
+    tags: ["n8n", "Pinecone", "LLM Agent", "Vector DB"],
+    status: "completed",
   },
   {
-    title: "SaaS Workflow Automation",
-    category: "SaaS Automation",
-    description: "AI-powered automation system reducing manual data entry by 80% for a fintech company.",
-    tags: ["Node.js", "OpenAI", "n8n", "Docker"],
-  },
-  {
-    title: "Real-time Analytics Engine",
+    title: "Multi-Tenancy Backend Architecture",
     category: "Backend Development",
-    description: "High-performance data pipeline processing 500K events per minute with sub-second latency.",
-    tags: ["Node.js", "Kafka", "ClickHouse", "Kubernetes"],
-  },
-  {
-    title: "Multi-tenant CRM Backend",
-    category: "SaaS Development",
-    description: "Enterprise-grade CRM backend supporting 200+ tenants with custom workflow automation.",
-    tags: ["Node.js", "PostgreSQL", "REST API", "Stripe"],
+    description: "Scalable multi-tenant backend system for SaaS applications focusing on tenant isolation, secure data separation, and performance at scale.",
+    tags: ["Node.js", "NestJS", "TypeScript", "APIs"],
+    status: "in-development",
   },
 ];
 
@@ -41,29 +52,29 @@ const PortfolioSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="group rounded-2xl overflow-hidden card-gradient border border-border hover:border-primary/50 transition-all duration-300 shadow-card"
+              className={`group rounded-2xl overflow-hidden card-gradient border border-border hover:border-primary/50 transition-all duration-300 shadow-card ${
+                index === 4 ? "md:col-span-2 lg:col-span-1" : ""
+              }`}
             >
-              {/* Project Image Placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/5 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-muted-foreground text-sm">Project Preview</span>
-                </div>
-                <div className="absolute top-4 left-4">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-3">
                   <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary border border-primary/30">
                     {project.category}
                   </span>
+                  {project.status === "in-development" && (
+                    <span className="px-2 py-1 text-xs font-medium rounded-full bg-accent/20 text-accent border border-accent/30">
+                      In Development
+                    </span>
+                  )}
                 </div>
-              </div>
-
-              <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
