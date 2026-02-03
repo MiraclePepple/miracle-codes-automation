@@ -1,4 +1,5 @@
 import { ExternalLink, Github } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import {
   Carousel,
@@ -7,6 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import ScrollReveal from "./ScrollReveal";
+import StaggerContainer, { itemVariants } from "./StaggerContainer";
 
 import hrWorkflow from "@/assets/hr-reviewer-workflow.png";
 import hrOutput from "@/assets/hr-reviewer-output.jpg";
@@ -30,6 +33,7 @@ const projects = [
     tags: ["n8n", "LLM", "Property Data", "NLP"],
     status: "completed",
     video: propertySearchDemo,
+    videoStartTime: 81,
   },
   {
     title: "E-commerce Support Chatbot",
@@ -56,30 +60,38 @@ const projects = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-secondary/20">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+    <section id="portfolio" className="py-20 md:py-32 relative overflow-hidden">
+      {/* Background glow effects */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <ScrollReveal className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             A selection of backend systems and automation solutions I've built.
           </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <StaggerContainer 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
+          staggerDelay={0.1}
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={project.title}
-              className={`group rounded-2xl overflow-hidden card-gradient border border-border hover:border-primary/50 transition-all duration-300 shadow-card ${
+              variants={itemVariants}
+              className={`group rounded-2xl overflow-hidden glass-card glow-border hover:border-primary/30 transition-all duration-500 ${
                 index === 4 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
               {project.video && (
                 <div className="px-4 pt-4">
-                  <div className="aspect-video rounded-lg overflow-hidden bg-secondary">
+                  <div className="aspect-video rounded-xl overflow-hidden bg-secondary/50">
                     <video
-                      src={project.video}
+                      src={`${project.video}#t=${project.videoStartTime || 0}`}
                       className="w-full h-full object-cover"
                       controls
                       muted
@@ -95,7 +107,7 @@ const PortfolioSection = () => {
                     <CarouselContent>
                       {project.images.map((image, imgIndex) => (
                         <CarouselItem key={imgIndex}>
-                          <div className="aspect-video rounded-lg overflow-hidden bg-secondary">
+                          <div className="aspect-video rounded-xl overflow-hidden bg-secondary/50">
                             <img
                               src={image}
                               alt={`${project.title} screenshot ${imgIndex + 1}`}
@@ -130,7 +142,7 @@ const PortfolioSection = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 text-xs font-mono rounded bg-secondary text-muted-foreground"
+                      className="px-2 py-1 text-xs font-mono rounded-lg bg-secondary/50 text-muted-foreground border border-border/50"
                     >
                       {tag}
                     </span>
@@ -138,19 +150,19 @@ const PortfolioSection = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary hover:bg-primary/10">
                     <ExternalLink className="w-4 h-4 mr-1" />
                     View Project
                   </Button>
-                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary hover:bg-primary/10">
                     <Github className="w-4 h-4 mr-1" />
                     Source Code
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
