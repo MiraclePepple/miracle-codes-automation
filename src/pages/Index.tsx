@@ -1,11 +1,10 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ClientLogos from "@/components/ClientLogos";
-import VideoSection from "@/components/VideoSection";
 import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import SkillsSection from "@/components/SkillsSection";
+import WhatICanHelpSection from "@/components/WhatICanHelpSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,12 +13,11 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <ClientLogos />
-        <VideoSection />
         <AboutSection />
-        <ServicesSection />
-        <TestimonialsSection />
+        <SkillsSection />
+        <WhatICanHelpSection />
         <PortfolioSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

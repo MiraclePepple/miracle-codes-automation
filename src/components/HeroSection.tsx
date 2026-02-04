@@ -1,4 +1,4 @@
-import { ArrowRight, Code } from "lucide-react";
+import { ArrowRight, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 
@@ -23,39 +23,26 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8"
-          >
-            <Code className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Backend Developer & SaaS Automation Expert</span>
-          </motion.div>
-
           {/* Main Heading */}
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
-            Building{" "}
-            <span className="text-gradient">Scalable Backend</span>
-            <br />
-            & Automation Solutions
+            I build <span className="text-gradient">backend systems</span> and{" "}
+            <span className="text-gradient">AI-powered automations</span> that scale products and reduce manual work.
           </motion.h1>
 
-          {/* Subheading */}
+          {/* Subheadline */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            I help SaaS companies and startups streamline operations through smart backend systems, 
-            AI-powered automation, and efficient workflow integrations that drive growth.
+            Helping startups, founders, and teams build reliable backend logic, 
+            seamless integrations, and automation workflows that just work.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -66,37 +53,17 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button variant="hero" size="xl" asChild>
+              <a href="#portfolio">
+                <Eye className="w-5 h-5" />
+                View My Work
+              </a>
+            </Button>
+            <Button variant="heroOutline" size="xl" asChild>
               <a href="#contact">
                 Contact Me
                 <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
-            <Button variant="heroOutline" size="xl" asChild>
-              <a href="#portfolio">
-                View My Portfolio
-              </a>
-            </Button>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-border/50"
-          >
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">50+</div>
-              <div className="text-sm text-muted-foreground mt-1">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">5+</div>
-              <div className="text-sm text-muted-foreground mt-1">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">30+</div>
-              <div className="text-sm text-muted-foreground mt-1">Happy Clients</div>
-            </div>
           </motion.div>
         </div>
       </div>
