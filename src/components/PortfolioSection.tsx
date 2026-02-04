@@ -16,6 +16,7 @@ import hrOutput from "@/assets/hr-reviewer-output.jpg";
 import hrPrompt from "@/assets/hr-reviewer-prompt.jpg";
 import hrResults from "@/assets/hr-reviewer-results.jpg";
 import propertySearchDemo from "@/assets/property-search-demo.mp4";
+import ecommerceChatbotDemo from "@/assets/ecommerce-chatbot-demo.mp4";
 
 const projects = [
   {
@@ -41,6 +42,8 @@ const projects = [
     description: "Customer service AI prototype for Jumia Nigeria handling order tracking, refund requests, and product inquiries with built-in knowledge base.",
     tags: ["n8n", "AI Agent", "Knowledge Base"],
     status: "completed",
+    video: ecommerceChatbotDemo,
+    videoStartTime: 290,
   },
   {
     title: "RAG System",
