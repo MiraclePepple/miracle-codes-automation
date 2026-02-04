@@ -3,29 +3,8 @@ import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="py-20 bg-card/50 border-t border-border">
+  <footer className="py-16 bg-card/50 border-t border-border">
       <div className="container mx-auto px-4">
-        {/* CTA Section */}
-        <div className="text-center max-w-2xl mx-auto mb-16 pb-16 border-b border-border">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Let's Build Something <span className="text-gradient">Amazing</span>
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            Ready to transform your backend infrastructure or automate your workflows? 
-            Let's discuss how I can help.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="lg" asChild>
-              <a href="mailto:hello@miraclepepple.com">
-                <Mail className="w-5 h-5" />
-                Get in Touch
-              </a>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="#portfolio">View My Work</a>
-            </Button>
-          </div>
-        </div>
 
         {/* Footer Grid */}
         <div className="grid md:grid-cols-4 gap-10 mb-12">
@@ -51,8 +30,8 @@ const Footer = () => {
             <nav className="flex flex-col gap-2">
               <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">Home</a>
               <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
-              <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">Services</a>
-              <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">Portfolio</a>
+              <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors">Skills</a>
+              <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">Work</a>
               <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
             </nav>
           </div>
