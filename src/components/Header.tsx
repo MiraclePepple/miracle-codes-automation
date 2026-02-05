@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Work", href: "#portfolio" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
@@ -23,67 +25,100 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg" 
+          ? "glass-nav shadow-lg" 
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#home" className="text-xl md:text-2xl font-bold">
+          <motion.a 
+            href="#home" 
+            className="text-xl md:text-2xl font-bold"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <span className="text-gradient">MP</span>
             <span className="text-foreground">.</span>
-          </a>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
+            {navLinks.map((link, index) => (
+              <motion.a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium rounded-lg hover:bg-primary/5"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium rounded-lg hover:bg-white/5 relative group"
               >
                 {link.name}
-              </a>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-3/4 transition-all duration-300 rounded-full" />
+              </motion.a>
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <motion.div 
+            className="hidden md:block"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <Button variant="hero" size="default" asChild>
               <a href="#contact">Contact Me</a>
             </Button>
-          </div>
+          </motion.div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2 rounded-lg hover:bg-primary/10 transition-colors"
+            className="md:hidden text-foreground p-2 rounded-lg hover:bg-white/5 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <motion.div
+              initial={false}
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.div>
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <nav className="md:hidden py-4 border-t border-border/50 glass-subtle rounded-b-xl">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block py-3 px-4 text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors rounded-lg mx-2"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="px-2 mt-2">
-              <Button variant="hero" size="default" className="w-full" asChild>
-                <a href="#contact">Contact Me</a>
-              </Button>
-            </div>
-          </nav>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.nav 
+              className="md:hidden py-4 border-t border-white/5 glass rounded-b-xl"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {navLinks.map((link, index) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="block py-3 px-4 text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors rounded-lg mx-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              <div className="px-2 mt-4">
+                <Button variant="hero" size="default" className="w-full" asChild>
+                  <a href="#contact" onClick={() => setIsOpen(false)}>Contact Me</a>
+                </Button>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

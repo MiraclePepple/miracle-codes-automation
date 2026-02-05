@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import {
@@ -48,7 +48,8 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background glow effects */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal className="text-center max-w-2xl mx-auto mb-16">
@@ -68,11 +69,11 @@ const PortfolioSection = () => {
             <motion.div
               key={project.title}
               variants={itemVariants}
-              className="group rounded-2xl overflow-hidden glass-card glow-border hover:border-primary/30 transition-all duration-500"
+              className="group rounded-2xl overflow-hidden glass-card glow-border card-hover"
             >
               {project.video && (
                 <div className="px-4 pt-4">
-                  <div className="aspect-video rounded-xl overflow-hidden bg-secondary/50">
+                  <div className="aspect-video rounded-xl overflow-hidden bg-secondary/50 ring-1 ring-white/10">
                     <video
                       src={`${project.video}#t=${project.videoStartTime || 0}`}
                       className="w-full h-full object-cover"
@@ -90,7 +91,7 @@ const PortfolioSection = () => {
                     <CarouselContent>
                       {project.images.map((image, imgIndex) => (
                         <CarouselItem key={imgIndex}>
-                          <div className="aspect-video rounded-xl overflow-hidden bg-secondary/50">
+                          <div className="aspect-video rounded-xl overflow-hidden bg-secondary/50 ring-1 ring-white/10">
                             <img
                               src={image}
                               alt={`${project.title} screenshot ${imgIndex + 1}`}
@@ -106,24 +107,29 @@ const PortfolioSection = () => {
                 </div>
               )}
               <div className="p-6">
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary border border-primary/30 mb-3 inline-block">
+                <span className="tag-gradient mb-3 inline-block">
                   {project.category}
                 </span>
-                <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-gradient transition-all duration-300">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 text-xs font-mono rounded-lg bg-secondary/50 text-muted-foreground border border-border/50"
+                      className="px-2 py-1 text-xs font-mono rounded-lg bg-white/5 text-muted-foreground border border-white/10"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+
+                <Button variant="outline" size="sm" className="w-full group/btn">
+                  <span>View Details</span>
+                  <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
               </div>
             </motion.div>
           ))}

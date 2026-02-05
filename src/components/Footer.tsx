@@ -1,11 +1,12 @@
-import { Github, Linkedin, Twitter, Mail, MapPin } from "lucide-react";
-import { Button } from "./ui/button";
+import { Github, Linkedin, Twitter, Mail, MapPin, Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-  <footer className="py-16 bg-card/50 border-t border-border">
+    <footer className="relative py-16 bg-background border-t border-white/5">
+      {/* Gradient top border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      
       <div className="container mx-auto px-4">
-
         {/* Footer Grid */}
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
@@ -14,7 +15,7 @@ const Footer = () => {
               <span className="text-gradient">MP</span>
               <span className="text-foreground">.</span>
             </a>
-            <p className="text-muted-foreground mb-4 max-w-sm">
+            <p className="text-muted-foreground mb-4 max-w-sm leading-relaxed">
               Backend developer and SaaS automation specialist helping companies 
               build scalable systems and streamline operations.
             </p>
@@ -42,31 +43,35 @@ const Footer = () => {
             <div className="flex gap-3">
               <a
                 href="https://github.com"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+                className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
               <a
                 href="https://linkedin.com"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+                className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="https://twitter.com"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+                className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="mailto:hello@miraclepepple.com"
-                className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-colors"
+                className="social-icon"
+                aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -75,8 +80,11 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Miracle Tamunodein Pepple. All rights reserved.</p>
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <p className="flex items-center gap-1">
+            © {new Date().getFullYear()} Miracle Tamunodein Pepple. Built with{" "}
+            <Heart className="w-4 h-4 text-primary inline" /> and lots of coffee.
+          </p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
