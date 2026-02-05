@@ -1,4 +1,4 @@
-import { Code, Workflow, Link2, Database, Rocket } from "lucide-react";
+import { Code, Workflow, Link2, Database, Rocket, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import StaggerContainer, { itemVariants } from "./StaggerContainer";
@@ -7,27 +7,32 @@ const services = [
   {
     icon: Code,
     title: "Backend API Development",
-    description: "Clean, well-documented APIs that power your applications reliably.",
+    description: "Clean, well-documented APIs that power your applications reliably. RESTful design with proper error handling and validation.",
   },
   {
     icon: Workflow,
     title: "Workflow Automation",
-    description: "Automate repetitive business processes to save time and reduce errors.",
+    description: "Automate repetitive business processes to save time and reduce errors. From simple scripts to complex multi-step workflows.",
   },
   {
     icon: Link2,
     title: "System Integration",
-    description: "Connect your tools and services with seamless, reliable integrations.",
+    description: "Connect your tools and services with seamless, reliable integrations. Third-party APIs, webhooks, and data sync.",
   },
   {
     icon: Database,
     title: "Database Design",
-    description: "Optimized database schemas that scale with your growing data needs.",
+    description: "Optimized database schemas that scale with your growing data needs. Performance tuning and query optimization.",
   },
   {
     icon: Rocket,
     title: "Production-Ready Setup",
-    description: "Ship with confidence. Proper architecture, testing, and deployment.",
+    description: "Ship with confidence. Proper architecture, testing, monitoring, and deployment pipelines for production environments.",
+  },
+  {
+    icon: Cpu,
+    title: "AI Integration",
+    description: "Integrate LLMs and AI capabilities into your applications. From chatbots to intelligent document processing.",
   },
 ];
 
@@ -35,7 +40,8 @@ const WhatICanHelpSection = () => {
   return (
     <section id="help" className="py-20 md:py-32 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px]" />
+      <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal className="text-center max-w-2xl mx-auto mb-16">
@@ -47,20 +53,20 @@ const WhatICanHelpSection = () => {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group p-6 rounded-2xl glass-card glow-border hover:border-primary/30 transition-all duration-500"
+              className="group p-6 rounded-2xl glass-card glow-border card-hover"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:shadow-glow transition-all duration-300">
-                <service.icon className="w-6 h-6 text-primary" />
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-5 group-hover:shadow-glow-sm transition-all duration-300">
+                <service.icon className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-gradient transition-all duration-300">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
