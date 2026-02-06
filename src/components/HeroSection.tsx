@@ -1,6 +1,13 @@
-import { ArrowRight, Eye } from "lucide-react";
+import { ArrowRight, Eye, Clock, Code2, Database, Workflow } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+
+const stats = [
+  { icon: Clock, text: "3+ Years Building Backend Systems" },
+  { icon: Code2, text: "Node.js, NestJS, TypeScript Expert" },
+  { icon: Database, text: "MySQL, MongoDB & PostgreSQL" },
+  { icon: Workflow, text: "n8n & Langchain Automation" },
+];
 
 const HeroSection = () => {
   return (
@@ -43,7 +50,21 @@ const HeroSection = () => {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
+          >
+            <span className="text-sm text-muted-foreground">Backend Developer</span>
+            <span className="w-1 h-1 rounded-full bg-primary" />
+            <span className="text-sm text-muted-foreground">AI Automation Specialist</span>
+            <span className="w-1 h-1 rounded-full bg-primary" />
+            <span className="text-sm text-muted-foreground">Node.js & TypeScript Expert</span>
+          </motion.div>
+
           {/* Main Heading */}
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -51,29 +72,50 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
           >
-            I build{" "}
-            <span className="text-gradient-animated">backend systems</span>{" "}
-            and{" "}
-            <span className="text-gradient-animated">AI-powered automations</span>{" "}
-            that scale products and reduce manual work.
+            I Build{" "}
+            <span className="text-gradient-animated">Backend Systems</span>{" "}
+            &{" "}
+            <span className="text-gradient-animated">AI Automations</span>{" "}
+            That Save Businesses 15+ Hours Weekly
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* Value Prop */}
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Helping startups, founders, and teams build reliable backend logic, 
-            seamless integrations, and automation workflows that just work.
+            Helping startups and tech teams scale faster with production-ready APIs, 
+            intelligent workflows, and automated processes.
           </motion.p>
+
+          {/* Stats/Proof Points */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-wrap justify-center gap-3 mb-12"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.text}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                className="flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm"
+              >
+                <stat.icon className="w-4 h-4 text-primary" />
+                <span className="text-muted-foreground">{stat.text}</span>
+              </motion.div>
+            ))}
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button variant="hero" size="xl" className="animate-glow-pulse" asChild>
@@ -84,7 +126,7 @@ const HeroSection = () => {
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#contact">
-                Contact Me
+                Let's Talk
                 <ArrowRight className="w-5 h-5" />
               </a>
             </Button>

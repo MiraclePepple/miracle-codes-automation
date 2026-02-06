@@ -12,11 +12,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="#home" className="text-2xl font-bold mb-4 inline-block">
-              <span className="text-gradient">MP</span>
-              <span className="text-foreground">.</span>
+              <span className="text-gradient">M</span>
+              <span className="text-foreground">iracle</span>
             </a>
             <p className="text-muted-foreground mb-4 max-w-sm leading-relaxed">
-              Backend developer and SaaS automation specialist helping companies 
+              Backend developer and AI automation specialist helping companies 
               build scalable systems and streamline operations.
             </p>
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -31,8 +31,8 @@ const Footer = () => {
             <nav className="flex flex-col gap-2">
               <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">Home</a>
               <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
-              <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors">Skills</a>
-              <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">Work</a>
+              <a href="#expertise" className="text-muted-foreground hover:text-primary transition-colors">Expertise</a>
+              <a href="#portfolio" className="text-muted-foreground hover:text-primary transition-colors">Projects</a>
               <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
             </nav>
           </div>
@@ -82,7 +82,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p className="flex items-center gap-1">
-            © {new Date().getFullYear()} Miracle Tamunodein Pepple. Built with{" "}
+            © {new Date().getFullYear()} Miracle Pepple. Built with{" "}
             <Heart className="w-4 h-4 text-primary inline" /> and lots of coffee.
           </p>
           <div className="flex gap-6">

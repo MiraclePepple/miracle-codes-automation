@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { Code2, Zap, Users, Coffee } from "lucide-react";
+import { Code2, Zap, Users, Sparkles } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
-const stats = [
-  { icon: Code2, value: "5+", label: "Years Experience" },
-  { icon: Zap, value: "50+", label: "Projects Delivered" },
-  { icon: Users, value: "30+", label: "Happy Clients" },
-  { icon: Coffee, value: "∞", label: "Cups of Coffee" },
+const highlights = [
+  { icon: Code2, label: "Production-Ready APIs" },
+  { icon: Zap, label: "Workflow Automation" },
+  { icon: Users, label: "Team Scalability" },
+  { icon: Sparkles, label: "AI Integration" },
 ];
 
 const AboutSection = () => {
@@ -20,11 +20,9 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
+            Backend Systems + AI Automation ={" "}
+            <span className="text-gradient">Growth</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Get to know the person behind the code
-          </p>
         </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -52,42 +50,39 @@ const AboutSection = () => {
             <div className="glass-card rounded-2xl p-8">
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p className="text-lg">
-                  I'm a backend engineer who builds systems that actually work in production. 
-                  My focus is on creating reliable backend logic, clean APIs, and automation 
-                  workflows that help teams ship faster and operate smoother.
+                  I'm a backend engineer who builds the infrastructure that powers modern applications. 
+                  From RESTful APIs to intelligent automation workflows, I create systems that are 
+                  <span className="text-foreground font-medium"> scalable, secure, and actually work in production</span>.
                 </p>
                 
                 <p>
-                  With experience across <span className="text-foreground font-medium">Node.js, TypeScript, Express, and NestJS</span>, 
-                  I've built everything from simple REST APIs to complex multi-tenant architectures. 
-                  I also work with <span className="text-foreground font-medium">AI automation tools</span> to help businesses 
-                  eliminate repetitive tasks and scale their operations without scaling their headcount.
+                  My approach combines solid backend fundamentals (<span className="text-foreground font-medium">Node.js, TypeScript, databases</span>) 
+                  with cutting-edge AI automation tools (<span className="text-foreground font-medium">n8n, Langchain, LLMs</span>) to help 
+                  businesses eliminate manual work and move faster.
                 </p>
                 
                 <p>
-                  I care about clean code, clear communication, and solving real problems. 
-                  No over-engineering. No unnecessary complexity. Just systems that do what 
-                  they're supposed to do, reliably.
+                  Whether you need a robust API, a database architecture that scales, or workflows 
+                  that run on autopilot—I build solutions that deliver results.
                 </p>
               </div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {stats.map((stat, index) => (
+            {/* Highlights */}
+            <div className="grid grid-cols-2 gap-4">
+              {highlights.map((item, index) => (
                 <motion.div
-                  key={stat.label}
+                  key={item.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass-card rounded-xl p-4 text-center card-hover group"
+                  className="glass-card rounded-xl p-4 flex items-center gap-3 card-hover group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 group-hover:shadow-glow-sm transition-all duration-300">
-                    <stat.icon className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:shadow-glow-sm transition-all duration-300">
+                    <item.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="text-2xl font-bold text-foreground text-gradient">{stat.value}</div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  <span className="text-sm font-medium text-foreground">{item.label}</span>
                 </motion.div>
               ))}
             </div>

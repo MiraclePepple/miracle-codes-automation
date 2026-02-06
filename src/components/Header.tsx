@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Work", href: "#portfolio" },
+  { name: "Expertise", href: "#expertise" },
+  { name: "Projects", href: "#portfolio" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -23,6 +23,15 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -34,14 +43,15 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <motion.a 
-            href="#home" 
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
             className="text-xl md:text-2xl font-bold"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-gradient">MP</span>
-            <span className="text-foreground">.</span>
+            <span className="text-gradient">M</span>
+            <span className="text-foreground">iracle</span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -50,6 +60,7 @@ const Header = () => {
               <motion.a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -68,7 +79,7 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             <Button variant="hero" size="default" asChild>
-              <a href="#contact">Contact Me</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>Let's Talk</a>
             </Button>
           </motion.div>
 
@@ -102,18 +113,18 @@ const Header = () => {
                 <motion.a
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="block py-3 px-4 text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors rounded-lg mx-2"
-                  onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </motion.a>
               ))}
               <div className="px-2 mt-4">
                 <Button variant="hero" size="default" className="w-full" asChild>
-                  <a href="#contact" onClick={() => setIsOpen(false)}>Contact Me</a>
+                  <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>Let's Talk</a>
                 </Button>
               </div>
             </motion.nav>

@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import VideoSection from "@/components/VideoSection";
-import SkillsSection from "@/components/SkillsSection";
-import WhatICanHelpSection from "@/components/WhatICanHelpSection";
+import ExpertiseSection from "@/components/ExpertiseSection";
+import TechStackSection from "@/components/TechStackSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import WhyWorkWithMeSection from "@/components/WhyWorkWithMeSection";
+import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -21,10 +22,11 @@ const Index = () => {
       <main>
         <HeroSection />
         <AboutSection />
-        <VideoSection />
-        <SkillsSection />
-        <WhatICanHelpSection />
+        <ExpertiseSection />
+        <TechStackSection />
         <PortfolioSection />
+        <WhyWorkWithMeSection />
+        <CTASection />
         <ContactSection />
       </main>
       <Footer />
