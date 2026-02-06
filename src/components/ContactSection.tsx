@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, ArrowRight, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Send, Github, Linkedin, Twitter, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import ScrollReveal from "./ScrollReveal";
@@ -8,6 +8,13 @@ const socialLinks = [
   { icon: Github, href: "https://github.com", label: "GitHub" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
   { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+];
+
+const openTo = [
+  "Remote backend development roles",
+  "AI automation consulting",
+  "Technical support & operations",
+  "International opportunities (UK, Netherlands, Canada, US)",
 ];
 
 const ContactSection = () => {
@@ -19,7 +26,6 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     const mailtoLink = `mailto:hello@miraclepepple.com?subject=Project Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
     window.location.href = mailtoLink;
   };
@@ -34,91 +40,36 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Let's <span className="text-gradient">Work Together</span>
+            Let's <span className="text-gradient">Build Together</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Looking for reliable backend development or automation solutions? 
-            I'm open to remote work, contracts, and interesting collaborations.
-          </p>
         </ScrollReveal>
 
-        <div className="max-w-2xl mx-auto">
-          <ScrollReveal delay={0.2}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="p-8 md:p-10 rounded-3xl glass-card glow-border"
-            >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground input-glow focus:outline-none"
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground input-glow focus:outline-none"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground input-glow focus:outline-none resize-none"
-                    placeholder="Tell me about your project..."
-                    required
-                  />
-                </div>
-
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Send Message
-                  <Send className="w-5 h-5" />
-                </Button>
-              </form>
-
-              <div className="mt-8 pt-8 border-t border-white/10">
-                <p className="text-center text-muted-foreground mb-6">
-                  Or reach out directly
-                </p>
-                
-                <div className="flex items-center justify-center gap-6">
-                  <a 
-                    href="mailto:hello@miraclepepple.com"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Left - Open To */}
+          <ScrollReveal direction="left">
+            <div className="glass-card rounded-2xl p-8 h-full">
+              <h3 className="text-xl font-bold text-foreground mb-6">Open to:</h3>
+              <div className="space-y-4">
+                {openTo.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="flex items-start gap-3"
                   >
-                    <Mail className="w-5 h-5" />
-                    <span>hello@miraclepepple.com</span>
-                  </a>
-                </div>
+                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-primary" />
+                    </div>
+                    <span className="text-muted-foreground">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
 
-                <div className="flex items-center justify-center gap-4 mt-6">
+              <div className="mt-10 pt-8 border-t border-white/10">
+                <p className="text-sm text-muted-foreground mb-4">Connect with me:</p>
+                <div className="flex items-center gap-4">
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
@@ -133,10 +84,71 @@ const ContactSection = () => {
                   ))}
                 </div>
               </div>
-              
-              <p className="text-muted-foreground text-sm mt-6 text-center">
-                Serious inquiries only. I typically respond within 24 hours.
-              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Right - Contact Form */}
+          <ScrollReveal direction="right">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="glass-card rounded-2xl p-8 glow-border"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground input-glow focus:outline-none"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground input-glow focus:outline-none"
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground input-glow focus:outline-none resize-none"
+                    placeholder="Tell me about your project..."
+                    required
+                  />
+                </div>
+
+                <Button type="submit" variant="hero" size="lg" className="w-full">
+                  Send Message
+                  <Send className="w-5 h-5" />
+                </Button>
+              </form>
+
+              <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                <Mail className="w-4 h-4" />
+                <span>hello@miraclepepple.com</span>
+              </div>
             </motion.div>
           </ScrollReveal>
         </div>
