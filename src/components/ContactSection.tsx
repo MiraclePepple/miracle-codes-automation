@@ -145,10 +145,13 @@ const ContactSection = () => {
                 </Button>
               </form>
 
-              <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <a 
+                href="mailto:miracle4424@gmail.com" 
+                className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Mail className="w-4 h-4" />
                 <span>miracle4424@gmail.com</span>
-              </div>
+              </a>
             </motion.div>
           </ScrollReveal>
         </div>
