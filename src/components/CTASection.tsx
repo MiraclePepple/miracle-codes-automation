@@ -44,7 +44,7 @@ const CTASection = () => {
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/MiraclePepple" target="_blank" rel="noopener noreferrer">
                   <Github className="w-5 h-5" />
                   View GitHub
                 </a>

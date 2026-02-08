@@ -5,9 +5,9 @@ import { Button } from "./ui/button";
 import ScrollReveal from "./ScrollReveal";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com/MiraclePepple", label: "GitHub" },
+  { icon: Linkedin, href: "http://linkedin.com/in/miracle-pepple", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com/uniquelymiracle?s=21", label: "Twitter" },
 ];
 
 const openTo = [
@@ -26,7 +26,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:hello@miraclepepple.com?subject=Project Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
+    const mailtoLink = `mailto:miracle4424@gmail.com?subject=Project Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
     window.location.href = mailtoLink;
   };
 
@@ -147,7 +147,7 @@ const ContactSection = () => {
 
               <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                <span>hello@miraclepepple.com</span>
+                <span>miracle4424@gmail.com</span>
               </div>
             </motion.div>
           </ScrollReveal>

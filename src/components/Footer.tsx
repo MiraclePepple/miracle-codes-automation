@@ -42,7 +42,7 @@ const Footer = () => {
             <h3 className="font-semibold text-foreground mb-4">Connect</h3>
             <div className="flex gap-3">
               <a
-                href="https://github.com"
+                href="https://github.com/MiraclePepple"
                 className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -51,7 +51,7 @@ const Footer = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="http://linkedin.com/in/miracle-pepple"
                 className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -60,7 +60,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/uniquelymiracle?s=21"
                 className="social-icon"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -69,7 +69,7 @@ const Footer = () => {
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="mailto:hello@miraclepepple.com"
+                href="mailto:miracle4424@gmail.com"
                 className="social-icon"
                 aria-label="Email"
               >
